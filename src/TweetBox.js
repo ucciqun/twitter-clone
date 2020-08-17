@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./TweetBox.css";
 import { Button, Avatar, IconButton } from "@material-ui/core";
 import ImageIcon from "@material-ui/icons/Image";
@@ -9,18 +9,23 @@ import EventIcon from "@material-ui/icons/Event";
 
 import db from "./firebase";
 
+import { User } from "./App";
+
 function TweetBox() {
   const [tweetMessage, setTweetMessage] = useState("");
   const [tweetImage, setTweetImage] = useState("");
+
+  const [account, setAccount] = useContext(User);
+
   const sendTweet = e => {
     e.preventDefault();
     db.collection("posts").add({
-      displayName: "きゅん",
-      username: "@xxUCQxx",
-      verified: true,
+      displayName: account.displayName,
+      username: account.username,
+      verified: account.verified,
       text: tweetMessage,
-      avatar:
-        "https://pbs.twimg.com/profile_images/1235077513207902215/V1RtvlkE_400x400.jpg"
+      avatar: account.avatar,
+      date: new Date()
     });
     setTweetMessage("");
     setTweetImage("");
@@ -30,7 +35,7 @@ function TweetBox() {
     <div className="tweetBox">
       <form>
         <div className="tweetBox__input">
-          <Avatar src="https://pbs.twimg.com/profile_images/1235077513207902215/V1RtvlkE_400x400.jpg" />
+          <Avatar src={account.avatar} />
           <div className="tweetBox__inputSpecial">
             <input
               onChange={e => setTweetMessage(e.target.value)}

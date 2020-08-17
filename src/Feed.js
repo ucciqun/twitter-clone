@@ -5,23 +5,22 @@ import Post from "./Post";
 import db from "./firebase";
 
 const Feed = () => {
-  const [posts, setPosts] = useState([
-    {
-      displayName: "きゅん",
-      username: "@xxUCQxx",
-      verified: true,
-      text: "道重かわゆ〜",
-      image:
-        "https://64.media.tumblr.com/610ab4e5a949973e0f8618d421069a02/tumblr_naaj89JFtJ1t3c0tdo1_400.gif",
-      avatar:
-        "https://pbs.twimg.com/profile_images/1235077513207902215/V1RtvlkE_400x400.jpg"
-    }
-  ]);
+  const [posts, setPosts] = useState([]);
   React.useEffect(() => {
     db.collection("posts").onSnapshot(snapshot =>
-      setPosts(snapshot.docs.map(doc => doc.data()))
+      setPosts(
+        snapshot.docs
+          .map(doc => doc.data())
+          .sort((a, b) => (a.date < b.date ? 1 : -1))
+      )
     );
   }, []);
+  const posts_copy = posts.slice();
+  posts_copy.sort(function(a, b) {
+    return a.date < b.date ? 1 : -1;
+  });
+  console.log(posts_copy);
+  // setPosts(posts_copy);
   return (
     <div className="feed">
       <div className="feed__header">
