@@ -47,10 +47,16 @@ const Sidebar = () => {
       <Button variant="outlined" className="sidebar__tweet" fullWidth>
         Tweet
       </Button>
-      <IconButton onClick={() => setAccount(User1)}>
+      <IconButton
+        className="sidebar__account"
+        onClick={() => setAccount(User1)}
+      >
         <Avatar src={User1.avatar} />
       </IconButton>
-      <IconButton onClick={() => setAccount(User2)}>
+      <IconButton
+        className="sidebar__account"
+        onClick={() => setAccount(User2)}
+      >
         <Avatar src={User2.avatar} />
       </IconButton>
     </div>

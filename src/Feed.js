@@ -35,6 +35,7 @@ const Feed = () => {
           text={post.text}
           image={post.image}
           avatar={post.avatar}
+          key={post.date}
         />
       ))}
     </div>
