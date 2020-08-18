@@ -1,0 +1,34 @@
+.tweetDialog .MuiPaper-root {
+  display: flex !important;
+  margin-bottom: auto !important;
+  border-radius: 15px;
+  width: 600px;
+  padding: 0 !important;
+}
+.tweetDialog .MuiDialogTitle-root {
+  padding: 4px 16px;
+}
+.tweetDialog__header {
+  display: flex !important;
+}
+.tweetDialog__close {
+  color: var(--twitter-color) !important;
+}
+.tweetDialog__unsent {
+  text-transform: inherit !important;
+  margin-left: auto !important;
+  color: var(--twitter-color) !important;
+  font-weight: bolder !important;
+  font-size: 17px !important;
+}
+.tweetDialog__tweet {
+  background-color: var(--twitter-color) !important;
+  border: none !important;
+  color: white !important;
+  font-weight: 900 !important;
+  text-transform: inherit !important;
+  border-radius: 30px !important;
+  height: 50px !important;
+  margin-top: 20px !important;
+  font-size: 20px !important;
+}

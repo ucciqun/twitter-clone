@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import "./Sidebar.css";
 import SidebarOption from "./SidebarOption";
+import TweetDialog from "./TweetDialog";
 
 import TwitterIcon from "@material-ui/icons/Twitter";
 import HomeIcon from "@material-ui/icons/Home";
@@ -43,10 +44,8 @@ const Sidebar = () => {
       <SidebarOption Icon={ListAltIcon} text="Lists" />
       <SidebarOption Icon={PersonOutlineIcon} text="Profile" />
       <SidebarOption Icon={MoreHorizIcon} text="More" />
+      <TweetDialog />
 
-      <Button variant="outlined" className="sidebar__tweet" fullWidth>
-        Tweet
-      </Button>
       <IconButton
         className="sidebar__account"
         onClick={() => setAccount(User1)}
